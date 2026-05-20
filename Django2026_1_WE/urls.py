@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, include  # <-- ¡Añadimos 'include' aquí!
+from django.urls import path, include  # Agg el include
 from django.conf.urls.static import static
 from django.conf import settings
 from core import views
@@ -7,7 +7,6 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # Rutas que se quedan en la app principal 'core'
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
