@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Servicios{% endblock %}
+
+{% block content %}
+  {% for servicio in servicios %}
+  <section class="page-section">
+    <div class="container">
+      <div class="product-item">
+        <div class="product-item-title d-flex">
+          <div class="bg-faded p-5 d-flex mr-auto rounded">
+            <h2 class="section-heading mb-0">
+              <span class="section-heading-upper">{{ servicio.subtitle }}</span>
+              <span class="section-heading-lower">{{ servicio.title }}</span>
+            </h2>
+          </div>
+        </div>
+
+        {% if servicio.imagen %}
+          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{ servicio.imagen.url }}" alt="">
+        {% endif %}
+
+        <div class="product-item-description d-flex ml-auto">
+          <div class="bg-faded p-5 rounded">
+            <p class="mb-0">{{ servicio.content|safe }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% empty %}
+    <p class="text-center text-white mt-5">No hay servicios disponibles en este momento.</p>
+  {% endfor %}
+{% endblock %}
