@@ -13,12 +13,10 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('store/', views.store, name='store'),
 
-    # --- APLICAMOS EL REQUISITO DEL PROFESOR (INCLUDE) ---
     path('blog/', include('blog.urls')),
     path('services/', include('services.urls')),
     path('rs/', include('rs.urls')),
 ]
 
-# Configuración para poder ver las imágenes en desarrollo
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
